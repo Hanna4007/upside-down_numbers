@@ -32,3 +32,18 @@ def add_num_if_valid(num, x, y, arr_upside_down)
   arr_upside_down << number if number.between?(x, y)
 end
 
+def full_amount_of_upside_down_numbers(x, y)
+  (x.length..y.length).sum do |length_of_number|
+    calculation_amount_of_numbers(length_of_number)
+  end
+end
+
+def calculation_amount_of_numbers(length_of_number)
+  if length_of_number == 1
+    return 3
+  elsif length_of_number.odd?
+    5 ** (((length_of_number - 4)/2).floor+ 1) * 4 * 3
+  else
+    5 ** (((length_of_number - 4)/2).floor + 1) * 4
+  end
+end
